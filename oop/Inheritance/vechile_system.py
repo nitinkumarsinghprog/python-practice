@@ -1,17 +1,3 @@
-# Parent class: Vehicle
-#   - attributes: brand, model, year
-#   - method: display_info() -> print all details
-#   - method: start() -> "Vehicle start ho rahi hai"
-#
-# Child class: Car (Vehicle inherit kare)
-#   - extra attribute: num_doors
-#   - override display_info() to show num_doors also
-#   - extra method: honk() -> "Beep Beep!"
-#
-# Child class: Bike (Vehicle inherit kare)
-#   - extra attribute: engine_cc
-#   - override start() -> "Bike kick se start ho rahi hai"
-
 class Vehicle:
     def __init__(self, brand, model, year):
         self.brand = brand
@@ -58,6 +44,25 @@ class Bike(Vehicle):
     def start(self):
         print(f"{self.brand} {self.model}: Bike kick se start ho rahi hai 🦵")
 
+class Truck(Vehicle):
+    def __init__(self, brand, model, year, load_capacity):
+        super().__init__(brand, model, year)
+        self.load_capacity = load_capacity
+
+    def display_info(self):
+        super().display_info()
+        print(f"Load Capacity : {self.load_capacity}")
+
+    def start(self):
+        print(f"{self.brand} {self.model}: Truck diesel se start ho raha hai")
+
+    def load_cargo(self, weight):
+        if weight <= self.load_capacity:
+            print(f"✅ {weight}kg cargo loaded in {self.brand} {self.model}")
+        else:
+            print(f"❌ Overload! {weight}kg > {self.load_capacity}kg capacity")
+
+
 
 # ===== Test =====
 print("=" * 40)
@@ -75,6 +80,15 @@ b = Bike("Honda", "CBR", 2022, 150)
 b.display_info()
 b.start()
 
+print("\n" + "=" * 40)
+print("🏍️  Truck DETAILS")
+print("=" * 40)
+t= Truck("Tata", "A890", 2019, 500)
+t.display_info()
+t.start()
+t.load_cargo(1000)
+
 # __str__ test
 print(f"\nVehicle: {c}")
 print(f"Vehicle: {b}")
+print(f"Vehicle: {t}")

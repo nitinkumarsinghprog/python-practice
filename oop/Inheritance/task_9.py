@@ -78,3 +78,7 @@ payments = [
 for p in payments:
     p.process_payment(500)    
     p.refund(200)             
+
+# Wallet mein sirf ₹300 hai
+w = Wallet("W002", 300)
+w.process_payment(500)

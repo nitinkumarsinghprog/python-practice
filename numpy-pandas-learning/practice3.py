@@ -5,7 +5,7 @@ print("SECTION 1: SHAPE + RESHAPE")
 print("=" * 40)
 
 #P1: 1 se 24 tak array banao, phir 4x6 mein reshape karo
-p1 = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
+p1 = np.arange(1, 25)
 print(p1)
 print()
 print("Reshape to 4X6")
